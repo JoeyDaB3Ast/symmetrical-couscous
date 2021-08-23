@@ -1,0 +1,97 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calorie Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<link rel="shortcut icon" type="image/x-icon" href="icon.ico">
+
+<body>
+
+<script type="text/javascript">
+
+function CalorieCalc(){
+    var weight = parseFloat(document.BMRformula.weight.value);
+    var height = parseFloat(document.BMRformula.height.value);
+    var age = parseFloat(document.BMRformula.age.value);
+
+    var MenBMR = (13.397*weight) + (4.799*height) - (5.677*age) + 88.362;
+    var WomenBMR = (9.247*weight) + (3.098*height) - (4.330*age) + 447.593;
+
+    if(document.getElementById('dot-1').checked) {
+        document.BMRformula.BMR.value = Math.round(MenBMR) + " calories to maintain your current weight";
+}else if(document.getElementById('dot-2').checked) {
+    document.BMRformula.BMR.value = Math.round(WomenBMR)  + " caloires to maintain your current weight";
+}
+
+}
+</script>
+    
+<div class="container">
+    <div class="navbar">
+        <a href="index.html" class="logo">Lepius</a>
+          <ul class="nav">
+            <li><a  href="index.html">Home</a></li>
+            <li><a  href="#Tracker">Tracker</a></li>
+            <li><a  href="#Quiz">Quiz</a></li>
+            <li><a  href="#about">about</a></li>
+            <li><a  href="#Achievements">Achievements</a></li>
+        </ul>
+    </div>
+
+    <div class="banner-area" id="home">
+        <br>
+        <h1>To better your health and lifestyle</h1>
+
+        <div class="otherContainer">
+            <div class="title">BMR Calculator</div>
+            <div class="content">
+              <form method="POST" action="#" name="BMRformula">
+                    <div class="user-details">
+                    <div class="input-box">
+                        <span class="details">Body Weight in Kg</span>
+                        <input type="text" id="weight" placeholder="Body Weight in Kg" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Height in Cm</span>
+                        <input type="text" id="height" placeholder="Height in Cm" required>
+                    </div>
+                    <div class="input-box">
+                        <span class="details">Age in years</span>
+                        <input type="text" id="age" placeholder="Age in years" required>
+                    </div>
+                    </div>
+                    <div class="gender-details">
+                        <input type="radio" name="gender" id="dot-1">
+                        <input type="radio" name="gender" id="dot-2">
+                        <span class="gender-title">Gender</span>
+                        <div class="category">
+                        <label for="dot-1">
+                        <span class="dot one"></span>
+                        <span class="gender">Male</span>
+                        </label>
+                        <label for="dot-2">
+                        <span class="dot two"></span>
+                        <span class="gender">Female</span>
+                        </label>
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="reset" value="Reset">
+                    </div>
+                    <div class="button">
+                    <input type="button" value="Calculate my calorie intake!" onclick="CalorieCalc();" id="calc">
+                    </div>
+                    <div class="answer">
+                        <label for="">Your daily calories intake needed is: </label>
+                        <input type="text" value="" style="font-size: 16; font-family: Quicksand; font-weight: bold;" size="100px" name="BMR" id="BMR" readonly>
+                    </div>
+              </form>
+            </div>
+          </div>
+    </div>
+
+</body>
