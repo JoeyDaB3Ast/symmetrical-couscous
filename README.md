@@ -1,2 +1,2 @@
-# symmetrical-couscous
+# Project
 Health and lifestyle website
